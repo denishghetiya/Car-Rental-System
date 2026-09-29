@@ -1,0 +1,20 @@
+﻿<div class="row mb-3">
+    <div class="col-md-3">
+        <label>Start Date</label>
+        <input type="date" id="reportstartDate" class="form-control" />
+    </div>
+    <div class="col-md-3">
+        <label>End Date</label>
+        <input type="date" id="reportendDate" class="form-control" />
+    </div>
+    <div class="col-md-3 mt-4">
+        <button type="button" class="btn btn-primary" id="applyFilter">Apply</button>
+    </div>
+    <div class="col-md-3 mt-4">
+        <button class="btn btn-secondary" type="reset" id="applyFilter" onclick="FilterOrReset()">Reset</button>
+    </div>
+</div>
+
+<table class="table align-middle table-row-dashed fs-6 gy-5 table-bordered" id="bookingTable"></table>
+
+<h4>Total Amount of All Records: ₹ <span id="totalAmountofallrecords">0</span></h4>

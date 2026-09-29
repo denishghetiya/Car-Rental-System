@@ -1,0 +1,91 @@
+﻿@model CarRentalSystem.ViewModels.AddCarViewModel
+
+<div class="row">
+    <div class="col">
+        <form id="addCarDetailForm" class="p-3">
+            <input type="hidden" asp-for="CarId" />
+            <div class="col-md-3">
+                <label asp-for="CarName" class="form-label">Car Name</label>
+                <input asp-for="CarName" id="CarName" name="CarName" type="text" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="CarPlateNumber" class="form-label">Car Plate Number</label>
+                <input asp-for="CarPlateNumber" id="CarPlateNumber" name="CarPlateNumber" type="text" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="PricePerDay" class="form-label">PricePerDay</label>
+                <input asp-for="PricePerDay" id="PricePerDay" name="PricePerDay" type="number" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="CarRegistrationDate" class="form-label">Car Registration Date</label>
+                <input asp-for="CarRegistrationDate" id="CarRegistrationDate" name="CarRegistrationDate" type="date" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="PUCExpiryDate" class="form-label">PUC Expiry Date</label>
+                <input asp-for="PUCExpiryDate" id="PUCExpiryDate" name="PUCExpiryDate" type="date" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="InsuranceExpiryDate" class="form-label">Insurance Expiry Date</label>
+                <input asp-for="InsuranceExpiryDate" id="InsuranceExpiryDate" name="InsuranceExpiryDate" type="date" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">RC Image</label>
+                <input type="hidden" asp-for="RCImageName" />
+                <input asp-for="RCImage" type="file" name="RCImage" id="RCImage" class="form-control" accept="image/*" onchange="previewImage(event,'RCImageimagePreview')" />
+            </div>
+            <div class="mb-3">
+            <img id="RCImageimagePreview" src="@Model.RCImageName" alt="Image Preview" style="max-width: 200px; max-height: 200px; object-fit: cover;" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">PUC Image</label>
+                <input type="hidden" asp-for="PUCImageName" />
+                <input asp-for="PUCImage" type="file" name="PUCImage" id="PUCImage" class="form-control" accept="image/*" onchange="previewImage(event,'PUCImageimagePreview')" />
+            </div>
+            <div class="mb-3">
+                <img id="PUCImageimagePreview" src="@Model.PUCImageName" alt="Image Preview" style="max-width: 200px; max-height: 200px; object-fit: cover;" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Insurance Image</label>
+                <input type="hidden" asp-for="InsuranceImageName" />
+                <input asp-for="InsuranceImage" type="file" name="InsuranceImage" id="InsuranceImage" class="form-control" accept="image/*" onchange="previewImage(event,'InsuranceImageimagePreview')" />
+            </div>
+            <div class="mb-3">
+                <img id="InsuranceImageimagePreview" src="@Model.InsuranceImageName" alt="Image Preview" style="max-width: 200px; max-height: 200px; object-fit: cover;" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Add Multiple Car Images</label>
+                <input asp-for="CarImg" id="CarImg" type="file" class="form-control" accept="image/*" multiple="multiple" />
+            </div>
+            <div class="mb-3" id="CarImgimagePreview"></div>
+
+            <div id="errors" style="color:red"></div>
+            @* <button type="button" class="btn btn-primary btn-sm mb-3" id="addCarImageBtn">Add Car Image</button>
+            <div id="CarImagesList" class="CarImagesList">
+                @for (int i = 0; i < Model.CarImages.Count; i++)
+                {
+                    <div class="col-md-3 carimages">
+                        <input type="hidden" name="CarImages.index" value="@i" />
+                        <input type="hidden" name="CarImages[@i].CarImageId" value="@Model.CarImages[i].CarImageId" />
+                        <input type="hidden" name="CarImages[@i].CarId" value="@Model.CarImages[i].CarId" />
+                        
+                        <label class="form-label">Car Image</label>
+                        <input type="hidden" name="CarImages[@i].CarImageName" value="@Model.CarImages[i].CarImageName" class="carimagename" />
+                        <input type="file" name="CarImages[@i].CarImage" id="CarImage-@i" class="form-control CarImage" accept="image/*" onchange="previewImage(event,'CarImageimagePreview-@i')" />
+
+                        <img id="CarImageimagePreview-@i" class="CarImageimagePreview" src="@Model.CarImages[@i].CarImageName" alt="Image Preview" style="max-width: 200px; max-height: 200px; object-fit: cover;" />
+                        
+                        <button type="button" class="btn btn-danger btn-sm removeCarImage">remove</button>
+                    </div>
+                }
+            </div> *@
+            <div class="text-start" style="margin-top: 50px;">
+                <button type="submit" class="btn btn-success" id="submitBtnACDF">Save</button>
+                <a asp-controller="Car" asp-action="CarDetailList" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
